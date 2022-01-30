@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private TextView Screen;
-    private Button One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Zero, Dot, Plus, Minus, Multiply, Div, Equal, Clear, Del;
+    private Button one, two, three, four, five, six, seven, eight, nine, zero, dot, plus, minus, multiply, div, equal, clear, del;
     private String input, Answer;
 
     @Override
@@ -17,24 +17,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Screen = findViewById(R.id.screen);
-        Del = findViewById(R.id.del);
-        Clear = findViewById(R.id.clear);
-        Equal = findViewById(R.id.equal);
-        Div = findViewById(R.id.div);
-        Multiply = findViewById(R.id.multiply);
-        Minus = findViewById(R.id.minus);
-        Plus = findViewById(R.id.plus);
-        Dot = findViewById(R.id.dot);
-        Zero = findViewById(R.id.zero);
-        Nine = findViewById(R.id.nine);
-        Eight = findViewById(R.id.eight);
-        Seven = findViewById(R.id.seven);
-        Six = findViewById(R.id.six);
-        Five = findViewById(R.id.five);
-        Four = findViewById(R.id.four);
-        Three = findViewById(R.id.three);
-        Two = findViewById(R.id.two);
-        One = findViewById(R.id.one);
+        del = findViewById(R.id.del);
+        clear = findViewById(R.id.clear);
+        equal = findViewById(R.id.equal);
+        div = findViewById(R.id.div);
+        multiply = findViewById(R.id.multiply);
+        minus = findViewById(R.id.minus);
+        plus = findViewById(R.id.plus);
+        dot = findViewById(R.id.dot);
+        zero = findViewById(R.id.zero);
+        nine = findViewById(R.id.nine);
+        eight = findViewById(R.id.eight);
+        seven = findViewById(R.id.seven);
+        six = findViewById(R.id.six);
+        five = findViewById(R.id.five);
+        four = findViewById(R.id.four);
+        three = findViewById(R.id.three);
+        two = findViewById(R.id.two);
+        one = findViewById(R.id.one);
     }
 
     public void onClick(View view) {
@@ -44,10 +44,7 @@ public class MainActivity extends AppCompatActivity {
             case "clear":
                 input = "";
                 break;
-            case "del":
-                String newText = input.substring(0, input.length() - 1);
-                input = newText;
-                break;
+
             case "equal":
                 Result();
                 Answer = input;
@@ -55,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
             case "multiply":
                 Result();
                 input = "*";
+                break;
+            case "del":
+                String newText = input.substring(0, input.length() - 1);
+                input = newText;
                 break;
             default:
                 if (input == null) {
@@ -66,10 +67,49 @@ public class MainActivity extends AppCompatActivity {
                 input += data;
 
         }
-Screen.setText(input);
+        Screen.setText(input);
     }
 
     private void Result() {
+        if (input.split("\\*").length == 2) {
+            String number[] = input.split("\\*");
+            try {
+                double multiply = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
+                input = multiply + "";
+            } catch (Exception e) {
 
+            }
+        } else if (input.split("/").length == 2) {
+            String number[] = input.split("/");
+            try {
+                double div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
+                input = div + "";
+            } catch (Exception e) {
+            }
+        } else if (input.split("\\+").length == 2) {
+            String number[] = input.split("\\+");
+            try {
+                double plus = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
+                input = plus + "";
+            } catch (Exception e) {
+            }
+        } else if (input.split("-").length > 1) {
+            String number[] = input.split("-");
+            if (number[0] == "" && number.length == 2) {
+                number[0] = 0 + "";
+            }
+            try {
+                double minus = 0;
+                if (number.length == 2) {
+                    minus = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
+                } else if (number.length == 3) {
+                    minus = -Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
+                }
+                input = minus + "";
+
+            } catch (Exception e) {
+            }
+        }
+        Screen.setText(input);
     }
 }
