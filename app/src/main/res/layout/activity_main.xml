@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#072E2E"
+    android:orientation="vertical"
     android:weightSum="6"
     tools:context=".MainActivity">
 
@@ -12,13 +12,13 @@
         android:id="@+id/screen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_gravity="center|right"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:background="@color/white"
         android:layout_margin="10dp"
-        android:text="@string/screen" />
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:text="@string/screen"
+        android:textColor="@color/black"
+        android:textSize="50sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -33,10 +33,11 @@
             android:layout_margin="8dp"
             android:layout_weight="2"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/clear"
             android:textColor="#FF5722"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/del"
@@ -45,10 +46,11 @@
             android:layout_margin="8dp"
             android:layout_weight="2"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/del"
             android:textColor="#FF5722"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -65,10 +67,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/seven"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -78,10 +81,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/eight"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -91,10 +95,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/nine"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -104,11 +109,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/div"
             android:textColor="#FF5722"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -126,10 +131,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/four"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -139,11 +145,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/five"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -153,10 +159,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/six"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/multiply"
@@ -165,11 +172,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/multiply"
             android:textColor="#FF5722"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -187,10 +194,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/one"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -200,10 +208,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/two"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -213,10 +222,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/three"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -226,10 +236,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/minus"
             android:textColor="#FF5722"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -247,10 +258,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/dot"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -260,10 +272,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/zero"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <Button
@@ -273,10 +286,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/equal"
             android:textColor="#F8CE00"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/plus"
@@ -285,10 +299,11 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:backgroundTint="#006752"
+            android:onClick="onClick"
             android:text="@string/plus"
             android:textColor="#FF5722"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
