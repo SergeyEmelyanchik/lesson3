@@ -4,12 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#072E2E"
+    android:weightSum="6"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="fill_parent"
-        android:layout_height="50pt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center|right"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:background="@color/white"
+        android:layout_margin="10dp"
         android:text="@string/Results" />
 
     <LinearLayout
@@ -26,7 +34,8 @@
             android:backgroundTint="#006752"
             android:text="@string/button_clear"
             android:textColor="#FF5722"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="submit"/>
 
         <Button
             android:id="@+id/btn_del"
