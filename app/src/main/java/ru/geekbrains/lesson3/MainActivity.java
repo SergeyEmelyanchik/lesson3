@@ -41,19 +41,19 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) view;
         String data = button.getText().toString();//объявляем строковые данные для получения текста кнопок
         switch (data) {
-            case "clear":
+            case "AC":
                 input = "";
                 break;
 
-            case "equal":
+            case "*":
+                Result();
+                input += "*";
+                break;
+            case "=":
                 Result();
                 Answer = input;
                 break;
-            case "multiply":
-                Result();
-                input = "*";
-                break;
-            case "del":
+            case "DEL":
                 String newText = input.substring(0, input.length() - 1);
                 input = newText;
                 break;
@@ -108,6 +108,12 @@ public class MainActivity extends AppCompatActivity {
                 input = minus + "";
 
             } catch (Exception e) {
+            }
+        }
+        String n[]=input.split("\\.");
+        if(n.length>1){
+            if(n[1].equals("0")){
+                input=n[0];
             }
         }
         Screen.setText(input);
