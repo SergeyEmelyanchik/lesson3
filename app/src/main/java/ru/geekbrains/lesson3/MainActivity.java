@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -37,85 +38,96 @@ public class MainActivity extends AppCompatActivity {
         one = findViewById(R.id.one);
     }
 
-    public void onClick(View view) {
-        Button button = (Button) view;
-        String data = button.getText().toString();//объявляем строковые данные для получения текста кнопок
-        switch (data) {
-            case "AC":
-                input = "";
-                break;
-
-            case "*":
-                Result();
-                input += "*";
-                break;
-            case "=":
-                Result();
-                Answer = input;
-                break;
-            case "DEL":
-                String newText = input.substring(0, input.length() - 1);
-                input = newText;
-                break;
-            default:
-                if (input == null) {
-                    input = "";
-                }
-                if (data.equals("+") || data.equals("-") || data.equals("/")) {
-                    Result();
-                }
-                input += data;
-
-        }
-        Screen.setText(input);
+    /* @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("Screen", Screen.getText().toString());
     }
 
-    private void Result() {
-        if (input.split("\\*").length == 2) {
-            String number[] = input.split("\\*");
-            try {
-                double multiply = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
-                input = multiply + "";
-            } catch (Exception e) {
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Screen.setText(savedInstanceState.getString("Screen"));
+    }*/
+            public void onClick (View view){
+                Button button = (Button) view;
+                String data = button.getText().toString();//объявляем строковые данные для получения текста кнопок
+                switch (data) {
+                    case "AC":
+                        input = "";
+                        break;
 
-            }
-        } else if (input.split("/").length == 2) {
-            String number[] = input.split("/");
-            try {
-                double div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
-                input = div + "";
-            } catch (Exception e) {
-            }
-        } else if (input.split("\\+").length == 2) {
-            String number[] = input.split("\\+");
-            try {
-                double plus = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
-                input = plus + "";
-            } catch (Exception e) {
-            }
-        } else if (input.split("-").length > 1) {
-            String number[] = input.split("-");
-            if (number[0] == "" && number.length == 2) {
-                number[0] = 0 + "";
-            }
-            try {
-                double minus = 0;
-                if (number.length == 2) {
-                    minus = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
-                } else if (number.length == 3) {
-                    minus = -Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
+                    case "*":
+                        Result();
+                        input += "*";
+                        break;
+                    case "=":
+                        Result();
+                        Answer = input;
+                        break;
+                    case "DEL":
+                        String newText = input.substring(0, input.length() - 1);
+                        input = newText;
+                        break;
+                    default:
+                        if (input == null) {
+                            input = "";
+                        }
+                        if (data.equals("+") || data.equals("-") || data.equals("/")) {
+                            Result();
+                        }
+                        input += data;
+
                 }
-                input = minus + "";
+                Screen.setText(input);
+            }
 
-            } catch (Exception e) {
+            private void Result () {
+                if (input.split("\\*").length == 2) {
+                    String number[] = input.split("\\*");
+                    try {
+                        double multiply = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
+                        input = multiply + "";
+                    } catch (Exception e) {
+
+                    }
+                } else if (input.split("/").length == 2) {
+                    String number[] = input.split("/");
+                    try {
+                        double div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
+                        input = div + "";
+                    } catch (Exception e) {
+                    }
+                } else if (input.split("\\+").length == 2) {
+                    String number[] = input.split("\\+");
+                    try {
+                        double plus = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
+                        input = plus + "";
+                    } catch (Exception e) {
+                    }
+                } else if (input.split("-").length > 1) {
+                    String number[] = input.split("-");
+                    if (number[0] == "" && number.length == 2) {
+                        number[0] = 0 + "";
+                    }
+                    try {
+                        double minus = 0;
+                        if (number.length == 2) {
+                            minus = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
+                        } else if (number.length == 3) {
+                            minus = -Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
+                        }
+                        input = minus + "";
+
+                    } catch (Exception e) {
+                    }
+                }
+                String n[] = input.split("\\.");
+                if (n.length > 1) {
+                    if (n[1].equals("0")) {
+                        input = n[0];
+                    }
+                }
+                Screen.setText(input);
             }
         }
-        String n[]=input.split("\\.");
-        if(n.length>1){
-            if(n[1].equals("0")){
-                input=n[0];
-            }
-        }
-        Screen.setText(input);
-    }
-}
