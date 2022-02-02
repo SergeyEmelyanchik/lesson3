@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Screen.setText(savedInstanceState.getString("Screen"));
-    }*/
+    }
+    */
             public void onClick (View view){
                 Button button = (Button) view;
                 String data = button.getText().toString();//объявляем строковые данные для получения текста кнопок
