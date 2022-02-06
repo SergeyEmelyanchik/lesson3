@@ -12,5 +12,48 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="materialButtonStyle">@style/myButtonStyle</item>
+    </style>
+
+    <style name="myTextViewStyle">
+        <item name="android:fontFamily">@font/aclonica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center|right</item>
+    </style>
+
+    <style name="myButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/aclonica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">#006752</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+    <style name="myButtonStyleLand" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/aclonica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">#006752</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="myButtonSize" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="myLinearLayoutTheme">
+        <item name="android:weightSum">4</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_weight">1</item>
     </style>
 </resources>

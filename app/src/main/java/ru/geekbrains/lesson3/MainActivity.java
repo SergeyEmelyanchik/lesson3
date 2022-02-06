@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView Screen;
     private Button one, two, three, four, five, six, seven, eight, nine, zero, dot, plus, minus, multiply, div, equal, clear, del;
     private String input, Answer;
@@ -50,85 +51,86 @@ public class MainActivity extends AppCompatActivity {
         Screen.setText(savedInstanceState.getString("Screen"));
     }
     */
-            public void onClick (View view){
-                Button button = (Button) view;
-                String data = button.getText().toString();//объявляем строковые данные для получения текста кнопок
-                switch (data) {
-                    case "AC":
-                        input = "";
-                        break;
+    public void onClick(View view) {
+        Button button = (Button) view;
+        String data = button.getText().toString();//объявляем строковые данные для получения текста кнопок
+        switch (data) {
+            case "AC":
+                input = "";
+                break;
 
-                    case "*":
-                        Result();
-                        input += "*";
-                        break;
-                    case "=":
-                        Result();
-                        Answer = input;
-                        break;
-                    case "DEL":
-                        String newText = input.substring(0, input.length() - 1);
-                        input = newText;
-                        break;
-                    default:
-                        if (input == null) {
-                            input = "";
-                        }
-                        if (data.equals("+") || data.equals("-") || data.equals("/")) {
-                            Result();
-                        }
-                        input += data;
-
+            case "*":
+                Result();
+                input += "*";
+                break;
+            case "=":
+                Result();
+                Answer = input;
+                break;
+            case "DEL":
+                String newText = input.substring(0, input.length() - 1);
+                input = newText;
+                break;
+            default:
+                if (input == null) {
+                    input = "";
                 }
-                Screen.setText(input);
+                if (data.equals("+") || data.equals("-") || data.equals("/")) {
+                    Result();
+                }
+                input += data;
+
+        }
+        Screen.setText(input);
+    }
+
+    private void Result() {
+        if (input.split("\\*").length == 2) {
+            String number[] = input.split("\\*");
+            try {
+                double multiply = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
+                input = multiply + "";
+            } catch (Exception e) {
+
             }
-
-            private void Result () {
-                if (input.split("\\*").length == 2) {
-                    String number[] = input.split("\\*");
-                    try {
-                        double multiply = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
-                        input = multiply + "";
-                    } catch (Exception e) {
-
-                    }
-                } else if (input.split("/").length == 2) {
-                    String number[] = input.split("/");
-                    try {
-                        double div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
-                        input = div + "";
-                    } catch (Exception e) {
-                    }
-                } else if (input.split("\\+").length == 2) {
-                    String number[] = input.split("\\+");
-                    try {
-                        double plus = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
-                        input = plus + "";
-                    } catch (Exception e) {
-                    }
-                } else if (input.split("-").length > 1) {
-                    String number[] = input.split("-");
-                    if (number[0] == "" && number.length == 2) {
-                        number[0] = 0 + "";
-                    }
-                    try {
-                        double minus = 0;
-                        if (number.length == 2) {
-                            minus = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
-                        } else if (number.length == 3) {
-                            minus = -Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
-                        }
-                        input = minus + "";
-
-                    } catch (Exception e) {
-                    }
+        } else if (input.split("/").length == 2) {
+            String number[] = input.split("/");
+            try {
+                double div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
+                input = div + "";
+            } catch (Exception e) {
+            }
+        } else if (input.split("\\+").length == 2) {
+            String number[] = input.split("\\+");
+            try {
+                double plus = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
+                input = plus + "";
+            } catch (Exception e) {
+            }
+        } else if (input.split("-").length > 1) {
+            String number[] = input.split("-");
+            if (number[0] == "" && number.length == 2) {
+                number[0] = 0 + "";
+            }
+            try {
+                double minus = 0;
+                if (number.length == 2) {
+                    minus = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
+                } else if (number.length == 3) {
+                    minus = -Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
                 }
-                String n[] = input.split("\\.");
-                if (n.length > 1) {
-                    if (n[1].equals("0")) {
-                        input = n[0];
-                    }
-                }
-                Screen.setText(input);
+                input = minus + "";
+
+            } catch (Exception e) {
             }
         }
+        String n[] = input.split("\\.");
+        if (n.length > 1) {
+            if (n[1].equals("0")) {
+                input = n[0];
+            }
+        }
+        Screen.setText(input);
+    }
+
+}

@@ -19,5 +19,7 @@
     <string name="clear">AC</string>
     <string name="del">DEL</string>
     <string name="screen">Results</string>
+    <string name="BraunTheme">Коричневая тема</string>
+    <string name="DarkGreenTheme">Зеленая тема</string>
 
 </resources>
